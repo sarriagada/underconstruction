@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Coming Soon Template - by InternalDevs</title>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="https://pbutcher.uk/flipdown/css/flipdown/flipdown.css">
+  <script src="https://pbutcher.uk/flipdown/js/flipdown/flipdown.js"></script>
+</head>
+
+<style>
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .bg-gradient{
+    background: linear-gradient(45deg, #09105f, #0b0e0d);
+    background-size: 300% 100%;
+    animation: gradient 25s ease infinite;
+  }
+  .info {
+    height: 400px;
+  }
+  .photo {
+    max-height: calc(100vh - 3.25rem);
+    margin: auto;
+    display: block;
+    object-fit: cover;
+    filter: blur(0.2rem) brightness(0.8);
+  }
+</style>
+
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a href="https://internaldevs.com" class="navbar-item">
+        <img src="./img/horizontal-color.png" alt="InternalDevs logo">
+      </a>
+
+      <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-link">Contacto cliente</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero is-black is-fullheight-with-navbar bg-gradient">
+    <div class="hero-body py-0 pl-0">
+      <div class="container is-fluid pl-0">
+        <div class="columns">
+          <div class="is-hidden-touch">
+            <img id="photo" src="./img/mimi-thian-ZKBzlifgkgw-unsplash.jpg" alt="bg-cover" class="photo">
+          </div>
+          <div class="column is-flex-tablet is-flex-direction-column is-justify-content-space-between is-align-self-center">
+            <div class="pb-6 pl-6">
+              <p class="title is-size-2">
+                Comming soon the new site of <b>Client Name</b>
+              </p>
+              <p class="subtitle">
+                We are working on it, please come back soon.
+              </p>
+            </div>
+            <div class="pb-6 pl-6">
+              <div id="flipdown" class="flipdown"></div>
+            </div>
+
+            <div class="pt-6 mt-6 has-text-centered is-vcentered">
+              Make with <iconify-icon icon="pixelarticons:heart" style="color: red;" width="20"></iconify-icon> by <b><a href="https://internaldevs.com">InternalDevs</a></b>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Add a click event on each of them
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+
+        });
+      });
+
+      // Unix timestamp (in seconds) to count down to
+      var twoDaysFromNow = (new Date().getTime() / 1000) + (86400 * 2) + 1;
+      // Set up FlipDown
+      new FlipDown(twoDaysFromNow, {
+        theme: "light",
+      }).start();
+    });
+  </script>
+</body>
+
+</html>
